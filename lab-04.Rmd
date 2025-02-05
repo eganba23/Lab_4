@@ -5,7 +5,6 @@ date: "2/5"
 output: github_document
 ---
 
-### Load packages and data
 
 ```{r load-packages, message = FALSE, echo = FALSE}
 library(tidyverse) 
@@ -16,9 +15,9 @@ library(dsbox)
 states <- read_csv("data/states.csv")
 ```
 
-### Exercise 1
+### Exercise 1 - Look at Denny's dataset
 
-```{r examine denny's dataset}
+```{r examine dennys dataset}
 
 dennys %>%
   nrow()
@@ -28,7 +27,7 @@ ncol()
 ```
 There are 1,643 rows and 6 columns in the Denny's dataset
 
-### Exercise 2
+### Exercise 2 - Look at La Quinta dataset
 
 ```{r examine La Quinta dataset}
 
@@ -40,23 +39,91 @@ ncol()
 ```
 There are 909 rows and 6 columns in the La Quinta dataset
 
-### Exercise 3
+### Exercise 3 - International locations?
 
 Based on the website, Denny's is only based in the United States (if I google it, apparently there are a handful of Denny's located in Canada, Mexico, etc.). For La Quinta, there are several hotels in China, New Zealand, Turkey, the United Arab Emirates, Chile, Colombia, and Ecquador.
 ...
 
-### Exercise 4
+### Exercise 4 - Dataset observations
+
+```{r brainstorm locations}
+view(dennys)
+view(laquinta)
+```
+
+Looking at the dataset, there is a column for states, latitude, longitude. One way we could do this is by filtering out state abbreviations. This should leave us with only international data. Another way to do this is create a filter that filters out rows based on their latitude and longitude. Any observations that match latitude and longitude in the United states would be filtered out.
 
 ...
 
-### Exercise 5
+### Exercise 5 - Examine Denny's dataset
+
+```{r find Dennys international}
+
+dennys %>%
+  filter(!(state %in% states$abbreviation))
+
+```
+There are no Denny's outside the United States in the dataset.
 
 ...
 
-### Exercise 6
+### Exercise 6 - USA Denny's variable
+
+```{r create Dennys USA variable}
+
+dn <- dennys %>%
+  mutate(country = "United States")
+#view(dn)
+```
 
 ...
 
+### Exercise 7 - Examine La Quinta dataset 
+
+```{r find La Quinta international}
+
+laquinta %>%
+  filter(!(state %in% states$abbreviation))
+
+```
+Places and state tags for international hotels:
+Mexico (AG)
+Mexico (QR)
+Mexico (CH)
+Mexico (NL)
+Colombia (ANT)
+Mexico (NL)
+Mexico (NL)
+Canada (ON)
+Mexico (VE)
+Mexico (PU)
+Mexico (PU)
+Mexico (SL)
+Honduras (FM)
+Canada (BC)
+
+...
+
+### Exercise 8 - La Quinta Country Variable
+
+```{r create La Quinta USA variable}
+
+lq_USA <- laquinta %>%
+  mutate(country = case_when(
+    state %in% state.abb ~ "United States",
+    state %in% c("ON", "BC") ~ "Canada",
+    state == "ANT" ~ "Colombia",
+    state %in% c("AG", "QR", "CH", "NL", "VE","PU","SL") ~ "Mexico",
+    state == "FM" ~ "Honduras"
+  ))
+
+#view(lq)
+
+lq <- lq_USA %>%
+  filter(country == "United States")
+
+```
+
+...
  
-Add exercise headings as needed.
 

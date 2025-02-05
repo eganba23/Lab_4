@@ -125,5 +125,60 @@ lq <- lq_USA %>%
 ```
 
 ...
+
+### Exercise 9 - Breakdown by state
+
+```{r breakdown by state}
+
+dn %>%
+  count(state, sort = TRUE) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+
+lq %>%
+  count(state, sort = TRUE) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+
+```
+Denny's: California has the most locations with 403
+
+La Quinta: Texas has the most locations with 237
+
+Honestly I didn't know what to expect. I am surprised at the drop off (for example, the 5th most state with La Quintas is Tennessee with 30).
+
+...
+
+### Exercise 10 - Combine and graph
+
+```{r combination Taco bell and Pizza Hut}
+
+dn <- dn %>%
+  mutate(establishment = "Denny's")
+lq <- lq %>%
+  mutate(establishment = "La Quinta")
+
+dn_lq <- bind_rows(dn, lq)
+
+ggplot(dn_lq, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+
+```
+
+...
+
+### Exercise 11 - only NC Data
+
+```{r filter for NC}
+
+dn_lq %>%
+  filter()
+
+
+```
+
+...
  
 

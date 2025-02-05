@@ -1,6 +1,6 @@
 ---
 title: "Hotel bookings - data wrangling"
-author: "YOU"
+author: "Benjamin Egan"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -8,12 +8,18 @@ output:
     toc_float: yes
 ---
 
-```{r load-pkg, message = FALSE}
+```{r load-pkg, message = FALSE, echo = FALSE}
+#install.packages("devtools")
+#devtools::install_github("rstudio-education/dsbox")
+#devtools::install_github("tidyverse/dsbox")
+#install.packages("skimr")
+
 library(tidyverse)
+library(dsbox)
 library(skimr)
 ```
 
-```{r load-data, message = FALSE}
+```{r load-data, message = FALSE, echo = FALSE}
 # From TidyTuesday: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md
 #hotels <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv")
 hotels <- read_csv("./data/hotels.csv")

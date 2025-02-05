@@ -1,37 +1,48 @@
 ---
 title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Benjamin Egan"
+date: "2/5"
 output: github_document
 ---
 
 ### Load packages and data
 
-```{r load-packages, message = FALSE}
+```{r load-packages, message = FALSE, echo = FALSE}
 library(tidyverse) 
 library(dsbox) 
 ```
 
-```{r load-data, message = FALSE}
+```{r load-data, message = FALSE, echo = FALSE}
 states <- read_csv("data/states.csv")
 ```
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r examine denny's dataset}
+
+dennys %>%
+  nrow()
+dennys %>%
+ncol()
+
+```
+There are 1,643 rows and 6 columns in the Denny's dataset
 
 ### Exercise 2
 
-Remove this text, and add your answer for Exercise 2 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r examine La Quinta dataset}
+
+laquinta %>%
+  nrow()
+laquinta %>%
+ncol()
+
+```
+There are 909 rows and 6 columns in the La Quinta dataset
 
 ### Exercise 3
 
+Based on the website, Denny's is only based in the United States (if I google it, apparently there are a handful of Denny's located in Canada, Mexico, etc.). For La Quinta, there are several hotels in China, New Zealand, Turkey, the United Arab Emirates, Chile, Colombia, and Ecquador.
 ...
 
 ### Exercise 4

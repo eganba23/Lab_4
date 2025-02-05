@@ -42,6 +42,7 @@ There are 909 rows and 6 columns in the La Quinta dataset
 ### Exercise 3 - International locations?
 
 Based on the website, Denny's is only based in the United States (if I google it, apparently there are a handful of Denny's located in Canada, Mexico, etc.). For La Quinta, there are several hotels in China, New Zealand, Turkey, the United Arab Emirates, Chile, Colombia, and Ecquador.
+
 ...
 
 ### Exercise 4 - Dataset observations
@@ -67,7 +68,7 @@ There are no Denny's outside the United States in the dataset.
 
 ...
 
-### Exercise 6 - USA Denny's variable
+### Exercise 6 - Creating a USA variable for Denny's 
 
 ```{r create Dennys USA variable}
 
@@ -104,7 +105,7 @@ Canada (BC)
 
 ...
 
-### Exercise 8 - La Quinta Country Variable
+### Exercise 8 - Creating a Country variable for La Quinta
 
 ```{r create La Quinta USA variable}
 
@@ -169,16 +170,52 @@ ggplot(dn_lq, mapping = aes(
 
 ...
 
-### Exercise 11 - only NC Data
+### Exercise 11 - Examining and Visualizing North Carolina data
 
 ```{r filter for NC}
 
-dn_lq %>%
-  filter()
+NC_data <- dn_lq %>%
+  filter(state == "NC")
 
+NC_data %>%
+  ggplot( mapping = aes(
+    x = longitude,
+    y = latitude,
+    color = establishment
+)) +
+    geom_point(alpha = .5) +
+  scale_color_manual(values=c('Blue','Red'))+
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Distribution of Denny's and La Quinta in North Carolina" 
+  )
 
 ```
+Visually, Mitch's joke does not appear to hold. There are a handful of locations where they are next to each other, but there are a handful of La Quintas that are not next to Denny's.
 
 ...
- 
 
+### Exercise 12 - Examining and Visualizing  Texas data
+
+```{r filter for Texas}
+
+TX_data <- dn_lq %>%
+  filter(state == "TX")
+
+TX_data %>%
+  ggplot( mapping = aes(
+    x = longitude,
+    y = latitude,
+    color = establishment
+)) +
+    geom_point(alpha = .3) +
+  scale_color_manual(values=c('Blue','Red'))+
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Distribution of Denny's and La Quinta in Texas" 
+  )
+
+```
+It looks like the joke holds up more in Texas than it does in North Carolina. There are a lot of overlapping Denny's and La Quintas.

@@ -21,8 +21,19 @@ library(skimr)
 
 ```{r load-data, message = FALSE, echo = FALSE}
 # From TidyTuesday: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md
-#hotels <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv")
+githubURL_2 <- "https://github.com/DataScience4Psych/DataScience4Psych/raw/main/data/raw-data/dennys.rda"
+load(url(githubURL_2))
+
+
+
+
+githubURL_2 <- "https://github.com/DataScience4Psych/DataScience4Psych/raw/main/data/raw-data/dennys.rda"
+
+
+load(url(githubURL_2))
+
 hotels <- read_csv("./data/hotels.csv")
+states <- read_csv("data/states.csv")
 ```
 
 

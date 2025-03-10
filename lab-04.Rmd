@@ -5,6 +5,7 @@ date: "2/5"
 output: github_document
 ---
 
+Link to assignment: https://datascience4psych.github.io/DataScience4Psych/lab04.html
 
 ```{r load-packages, message = FALSE, echo = FALSE}
 library(tidyverse) 

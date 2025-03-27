@@ -3,6 +3,11 @@ Lab 04 - La Quinta is Spanish for next to Denny’s, Pt. 1
 Benjamin Egan
 2/5
 
+Link to assignment:
+<https://datascience4psych.github.io/DataScience4Psych/lab04.html>
+
+    ## Warning: package 'purrr' was built under R version 4.3.3
+
 ### Exercise 1 - Look at Denny’s dataset
 
 ``` r

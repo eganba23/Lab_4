@@ -7,6 +7,8 @@ output: github_document
 
 Link to assignment: https://datascience4psych.github.io/DataScience4Psych/lab04.html
 
+Link to archived assignment: https://web.archive.org/web/20250414135305/https://datascience4psych.github.io/DataScience4Psych/lab04.html#getting-started-3
+
 ```{r load-packages, message = FALSE, echo = FALSE}
 library(tidyverse) 
 library(dsbox) 
